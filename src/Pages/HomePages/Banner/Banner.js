@@ -16,8 +16,8 @@ export default function Banner() {
                 <Grid container spacing={2}>
                     <Grid style={{ ...verticalCenter, textAlign: 'left' }} item xs={12} md={6} >
                         <Box >
-                            <Typography sx={{ fontWeight: 700 }} variant='h2'>Your New Smile<br />
-                                Starts Here
+                            <Typography sx={{ fontWeight: 700 }} variant='h2'>BEAUTY SALON<br />
+                                FOR EVERY WOMEN
                             </Typography>
                             <Typography variant='h6' sx={{ my: 5, fontSize: 18, color: 'gray', fontWeight: 200 }}>
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum consequuntur ullam tempora eos labore explicabo atque! Quisquam eveniet ipsa illum!
@@ -33,7 +33,7 @@ export default function Banner() {
                         <img style={{ width: 550 }} alt='chair' src={bannerPic} />
                     </Grid>
                 </Grid>
-            </Container >
+            </Container>
         </div>
     )
 }
