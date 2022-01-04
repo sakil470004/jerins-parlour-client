@@ -1,4 +1,5 @@
 import React from 'react'
+import Footer from '../../Shared/Footer/Footer'
 import NavigationTop from '../../Shared/NavigationTop/NavigationTop'
 import Banner from '../Banner/Banner'
 import LetUsHandlePage from '../LetUsHandlePage/LetUsHandlePage'
@@ -15,6 +16,7 @@ export default function Home() {
             <LetUsHandlePage/>
             <MesssageReviewers/>
             <SendMessage/>
+            <Footer/>
         </div>
     )
 }
