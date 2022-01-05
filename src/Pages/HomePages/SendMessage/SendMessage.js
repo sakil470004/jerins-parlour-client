@@ -17,7 +17,7 @@ export default function SendMessage({ isCommentChange, setIsCommentChange }) {
     const handleAddReview = (e) => {
 
         // send data to the server
-        fetch('http://localhost:5000/comment', {
+        fetch('https://jerins-parlour-server.herokuapp.com/comment', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

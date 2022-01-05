@@ -7,7 +7,7 @@ export default function MesssageReviewers({ comments, setComments, isCommentChan
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/comment')
+        fetch('https://jerins-parlour-server.herokuapp.com/comment')
             .then(res => res.json())
             .then(data => {
                 setComments(data);

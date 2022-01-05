@@ -12,7 +12,7 @@ export default function ButtonGroupCustom({ action, id }) {
     setNewAction(event.target.value);
     const user = { id, action: event.target.value }
     // console.log(event.target.value)
-    fetch('http://localhost:5000/appointment/action', {
+    fetch('https://jerins-parlour-server.herokuapp.com/appointment/action', {
       method: 'PUT',
       headers: {
         'content-type': 'application/json'

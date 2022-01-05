@@ -16,7 +16,7 @@ export default function ServicesList() {
         // console.log(user.email)
         delete clone._id
         let newInfo={...clone,email:user.email,userName:user.displayName,action:'pending'}
-        fetch('http://localhost:5000/appointment', {
+        fetch('https://jerins-parlour-server.herokuapp.com/appointment', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -36,7 +36,7 @@ export default function ServicesList() {
     }
 
     useState(() => {
-        fetch('http://localhost:5000/service')
+        fetch('https://jerins-parlour-server.herokuapp.com/service')
             .then(res => res.json())
             .then(data => setServicesList(data))
     }, [])
