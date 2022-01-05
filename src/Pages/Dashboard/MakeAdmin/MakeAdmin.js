@@ -1,6 +1,6 @@
 import { Alert, Button, TextField } from '@mui/material';
 import React, { useState } from 'react'
-import useAuth from '../../../hooks/useAuth';
+
 
 export default function MakeAdmin() {
     const [email, setEmail] = useState('');
@@ -12,8 +12,8 @@ export default function MakeAdmin() {
         // console.log(e)
     }
     const handleAdminSubmit = e => {
-
-        const user = { email }
+// need lowerCase for server understand
+        const user = { email: email.toLocaleLowerCase() }
         fetch('http://localhost:5000/users/admin', {
             method: 'PUT',
             headers: {
@@ -25,10 +25,10 @@ export default function MakeAdmin() {
             .then(data => {
                 // console.log(data);
                 if (data.modifiedCount) {
-                    // alert('created Successfully')
+                    alert('created Successfully')
                     setSuccess(true)
                 } else {
-                    // alert('something wrong')
+                    alert('something wrong')
                     setSuccess(false)
 
                 }
@@ -58,7 +58,7 @@ export default function MakeAdmin() {
 
                     onBlur={handleOnBlur}
                 />
-                <Button size='small' type='submit' variant='contained' sx={{backgroundColor:'#f63e7b',borderRadius:'15px',m:2}}>Make Admin</Button>
+                <Button size='small' type='submit' variant='contained' sx={{ backgroundColor: '#f63e7b', borderRadius: '15px', m: 2 }}>Make Admin</Button>
             </form>
             {success && <Alert severity='success'>Made Admin Successfully</Alert>}
             {/* {!success && <Alert severity='error'>Problem occurred Making admin</Alert>} */}

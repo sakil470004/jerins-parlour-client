@@ -29,8 +29,9 @@ import logo from './../../Image_Icon/Group 33092.png'
 import MakeAdmin from './MakeAdmin/MakeAdmin';
 import AdminRoute from './AdminRoute/AdminRoute';
 import AddService from './AddService/AddService';
+import OrderList from './OrderLIst/OrderLIst';
 
-const drawerWidth = 200;
+const drawerWidth = 150;
 
 function Dashboard(props) {
 
@@ -46,35 +47,32 @@ function Dashboard(props) {
     };
 
     const drawer = (
-        <div>
-            <img width='150px' alt='logo'  src={logo} />
+        <div >
+            <Box sx={{ height: '60px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <img width='120' alt='logo' src={logo} />
+            </Box>
             <Divider />
-            <Link to='/services'><Button color="inherit">Services</Button></Link>
-            <br />
-            <Link to={`${url}`}><Button color="inherit">Booking List</Button></Link>
-            {admin && <Box>
-                <Link to={`${url}/makeAdmin`}><Button color="inherit">Make Admin</Button></Link>
-                <Link to={`${url}/addService`}><Button color="inherit">Add Service</Button></Link>
-            </Box>}
-            <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>
-                            {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                        </ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
-            </List>
+            <Box sx={{ textAlign: 'left', ml: 2, textDecoration: 'none' }}>
+                <Link to='/services' style={{ textDecoration: 'none' }}><Button color="inherit">Services</Button></Link>
+                <br />
+                <Link to={`${url}`} style={{ textDecoration: 'none' }}><Button color="inherit">My Booking</Button></Link>
+                {admin && <Box>
+                    <Link to={`${url}/orderList`} style={{ textDecoration: 'none' }}><Button color="inherit">Order List</Button></Link>
+                    <Link to={`${url}/makeAdmin`} style={{ textDecoration: 'none' }}><Button color="inherit">Make Admin</Button></Link>
+                    <Link to={`${url}/addService`} style={{ textDecoration: 'none' }}><Button color="inherit">Add Service</Button></Link>
+                </Box>}
+            </Box>
+
         </div>
     );
 
     const container = window !== undefined ? () => window().document.body : undefined;
 
     return (
-        <Box sx={{ display: 'flex' }}>
+        <Box sx={{ display: 'flex' }} >
             <CssBaseline />
             <AppBar
+                style={{ backgroundColor: '#f63e7b' }}
                 position="fixed"
                 sx={{
                     width: { sm: `calc(100% - ${drawerWidth}px)` },
@@ -141,6 +139,9 @@ function Dashboard(props) {
 
                     <AdminRoute path={`${path}/makeAdmin`}>
                         <MakeAdmin />
+                    </AdminRoute>
+                    <AdminRoute path={`${path}/orderList`}>
+                        <OrderList/>
                     </AdminRoute>
                     <AdminRoute path={`${path}/addService`}>
                         <AddService />

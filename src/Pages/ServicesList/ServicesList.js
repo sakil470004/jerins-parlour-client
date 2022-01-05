@@ -15,7 +15,7 @@ export default function ServicesList() {
         let clone = Object.assign({}, e)
         // console.log(user.email)
         delete clone._id
-        let newInfo={...clone,email:user.email,action:'pending'}
+        let newInfo={...clone,email:user.email,userName:user.displayName,action:'pending'}
         fetch('http://localhost:5000/appointment', {
             method: 'POST',
             headers: {
