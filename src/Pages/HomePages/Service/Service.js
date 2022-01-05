@@ -3,9 +3,14 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import { Button } from '@mui/material';
 
 export default function Service(props) {
     const { name, description, img ,price} = props.service;
+
+    const handleAddService =()=>{
+        alert('Service Added Successfully')
+    }
     return (
         <Card sx={{ minWidth: 275 ,border: 0,boxShadow:0}}>
             <CardMedia
@@ -26,6 +31,9 @@ export default function Service(props) {
                     {description}
 
                 </Typography>
+                <Button  variant='outlined' sx={{mt:2,mr:'auto'}}
+                    onClick={handleAddService }
+                 >Buy</Button>
             </CardContent>
           
         </Card>

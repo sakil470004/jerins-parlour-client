@@ -12,7 +12,7 @@ export default function MesssageReviewer(props) {
                     {name}
                 </Typography>
 
-                <Typography style={{ maxHeight: 80, overflow: 'auto' }} variant="body2" color="text.secondary">
+                <Typography style={{ maxHeight: 80, overflowY: 'auto' }} variant="body2" color="text.secondary">
                     {message}
 
                 </Typography>
