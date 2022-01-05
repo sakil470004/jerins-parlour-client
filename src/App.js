@@ -10,6 +10,9 @@ import {
 import Login from './Pages/Login/Login/Login';
 import AuthProvider from './context/AuthProvider/AuthProvider';
 import ServicesList from './Pages/ServicesList/ServicesList';
+import Footer from './Pages/Shared/Footer/Footer';
+import Dashboard from './Pages/Dashboard/DashBoard';
+import PrivateRoute from './Pages/Login/Firebase/PrivateRoute';
 
 function App() {
   return (
@@ -22,15 +25,16 @@ function App() {
             </Route>
 
             <Route path='/services'>
-              <ServicesList/> 
+              <ServicesList />
+              <Footer />
 
             </Route>
             {/* <PrivateRoute path="/appointment">
             <Appointment />
-          </PrivateRoute>
-          <PrivateRoute path="/dashboard">
-            <Dashboard />
           </PrivateRoute> */}
+            <PrivateRoute path="/dashboard">
+              <Dashboard />
+            </PrivateRoute>
             <Route path="/home" >
               <Home />
             </Route>

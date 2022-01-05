@@ -46,10 +46,11 @@ export default function Services() {
                 </Typography>
                 <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                     {services.map((service, index) => (
-                        <Grid item xs={4} sm={4} md={4} >
+                        <Grid item xs={4} sm={4} md={4}
+                        key={index}
+                         >
                             <Service
                                 service={service}
-                                key={service.index}
                             >
 
                             </Service>

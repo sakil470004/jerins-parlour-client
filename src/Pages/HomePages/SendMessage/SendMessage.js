@@ -1,9 +1,9 @@
 import { Button, Container, TextareaAutosize, TextField, Typography } from '@mui/material'
 import React, { useRef, useState } from 'react'
 
-export default function SendMessage({isCommentChange, setIsCommentChange}) {
+export default function SendMessage({ isCommentChange, setIsCommentChange }) {
     const [review, setReview] = useState([]);
-    const form=useRef(null)
+    const form = useRef(null)
 
     const handleOnBlur = (e) => {
         const field = e.target.name;
@@ -29,8 +29,8 @@ export default function SendMessage({isCommentChange, setIsCommentChange}) {
             .then(data => {
                 if (data.insertedId) {
                     alert('Review Added')
-                 setIsCommentChange(!isCommentChange)
-                    form.current.reset(); 
+                    setIsCommentChange(!isCommentChange)
+                    form.current.reset();
                 }
             })
         e.preventDefault()
@@ -40,14 +40,14 @@ export default function SendMessage({isCommentChange, setIsCommentChange}) {
         <div style={{ backgroundColor: '#fff8f5', paddingTop: '20px' }}>
             <Container>
                 <Typography variant="h4" component="div"
-                sx={{my:5}}
+                    sx={{ my: 5 }}
                 >
 
                     Send Review From Here
                 </Typography>
                 <form
-                onSubmit={handleAddReview}
-                ref={form}
+                    onSubmit={handleAddReview}
+                    ref={form}
                 >
                     <TextField
                         required
@@ -68,7 +68,7 @@ export default function SendMessage({isCommentChange, setIsCommentChange}) {
                         placeholder="Enter your message"
                         style={{ width: '50%', height: '100px', margin: '10px' }}
                     />
-                    <Button type='submit' variant='outline' sx={{ width: '50%' ,my:3}}>Submit</Button>
+                    <Button type='submit' variant='outline' sx={{ width: '50%', my: 3 }}>Submit</Button>
                 </form>
             </Container>
         </div>
