@@ -69,7 +69,7 @@ const useFirebase = () => {
 
                 const user = result.user;
                 // call saveUser with put
-              //  saveUser(user.email, user.displayName, 'PUT');
+                saveUser(user.email, user.displayName, 'PUT');
 
                 setAuthError('');
 
@@ -100,14 +100,14 @@ const useFirebase = () => {
     }, [auth])
 
     // observe user admin or not
-    // useEffect(() => {
-    //     fetch(`https://damp-island-23434.herokuapp.com/users/${user.email}`)
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             // console.log(data)
-    //             setAdmin(data.isAdmin)
-    //         })
-    // }, [user.email])
+    useEffect(() => {
+        fetch(`http://localhost:5000/users/${user.email}`)
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data)
+                setAdmin(data.isAdmin)
+            })
+    }, [user.email])
 
 
     // logout function
@@ -122,17 +122,17 @@ const useFirebase = () => {
         }).finally(() => setIsLoading(false));
     }
 
-    // const saveUser = (email, displayName, method) => {
-    //     const user = { email, displayName };
-    //     fetch('https://damp-island-23434.herokuapp.com/users', {
-    //         method: `${method}`,
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         },
-    //         body: JSON.stringify(user)
-    //     })
-    //         .then()
-    // }
+    const saveUser = (email, displayName, method) => {
+        const user = { email, displayName };
+        fetch('http://localhost:5000/users', {
+            method: `${method}`,
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then()
+    }
 
     return {
         user,

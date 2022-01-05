@@ -24,7 +24,11 @@ import {
     useRouteMatch
 } from "react-router-dom";
 import useAuth from '../../hooks/useAuth';
-// import AdminRoute from '../../Login/AdminRoute/AdminRoute';
+import DashboardHome from './DashboardHome/DashboardHome';
+import logo from './../../Image_Icon/Group 33092.png'
+import MakeAdmin from './MakeAdmin/MakeAdmin';
+import AdminRoute from './AdminRoute/AdminRoute';
+import AddService from './AddService/AddService';
 
 const drawerWidth = 200;
 
@@ -43,13 +47,14 @@ function Dashboard(props) {
 
     const drawer = (
         <div>
-            <Toolbar />
+            <img width='150px' alt='logo'  src={logo} />
             <Divider />
             <Link to='/services'><Button color="inherit">Services</Button></Link>
-            <Link to={`${url}`}><Button color="inherit">Dashboard</Button></Link>
+            <br />
+            <Link to={`${url}`}><Button color="inherit">Booking List</Button></Link>
             {admin && <Box>
                 <Link to={`${url}/makeAdmin`}><Button color="inherit">Make Admin</Button></Link>
-                <Link to={`${url}/addDoctor`}><Button color="inherit">Add Doctor</Button></Link>
+                <Link to={`${url}/addService`}><Button color="inherit">Add Service</Button></Link>
             </Box>}
             <List>
                 {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
@@ -127,23 +132,26 @@ function Dashboard(props) {
                 component="main"
                 sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
             >
+
                 <Toolbar />
                 <Switch>
                     <Route exact path={path}>
-                        {/* <DashboardHome /> */}
+                        <DashboardHome />
                     </Route>
-                    {/* <AdminRoute path={`${path}/makeAdmin`}>
+
+                    <AdminRoute path={`${path}/makeAdmin`}>
                         <MakeAdmin />
-                    </AdminRoute> */}
-                    {/* <AdminRoute path={`${path}/addDoctor`}>
-                        <AddDoctor />
-                    </AdminRoute> */}
+                    </AdminRoute>
+                    <AdminRoute path={`${path}/addService`}>
+                        <AddService />
+                    </AdminRoute>
                 </Switch>
 
             </Box>
         </Box>
     );
 }
+
 
 Dashboard.propTypes = {
     /**
@@ -152,5 +160,6 @@ Dashboard.propTypes = {
      */
     window: PropTypes.func,
 };
+
 
 export default Dashboard;

@@ -13,6 +13,7 @@ import ServicesList from './Pages/ServicesList/ServicesList';
 import Footer from './Pages/Shared/Footer/Footer';
 import Dashboard from './Pages/Dashboard/DashBoard';
 import PrivateRoute from './Pages/Login/Firebase/PrivateRoute';
+import NavigationTop from './Pages/Shared/NavigationTop/NavigationTop';
 
 function App() {
   return (
@@ -24,11 +25,12 @@ function App() {
               <Home />
             </Route>
 
-            <Route path='/services'>
+            <PrivateRoute path='/services'>
+              <NavigationTop/>
               <ServicesList />
               <Footer />
 
-            </Route>
+            </PrivateRoute>
             {/* <PrivateRoute path="/appointment">
             <Appointment />
           </PrivateRoute> */}

@@ -119,7 +119,7 @@ export default function NavigationTop() {
         </Menu>
     );
 
-    const { user,logout } = useAuth();
+    const { user, logout } = useAuth();
 
     return (
         <div style={{ background: '#fff8f5' }}>
@@ -139,9 +139,6 @@ export default function NavigationTop() {
                                     <Button color="inherit"  >Home</Button>
                                 </NavLink>
 
-                                <NavLink style={{ color: 'black', textDecoration: 'none' }} to='/home'>
-                                    <Button color="inherit"  >Our Portfolio</Button>
-                                </NavLink>
 
                                 <NavLink style={{ color: 'black', textDecoration: 'none' }} to='/home'>
                                     <Button color="inherit"  >Our Team</Button>
@@ -150,16 +147,19 @@ export default function NavigationTop() {
                                 <NavLink style={{ color: 'black', textDecoration: 'none' }} to='/home'>
                                     <Button color="inherit"  >Contact Us</Button>
                                 </NavLink>
+                                <NavLink style={{ color: 'black', textDecoration: 'none' }} to='/dashboard'>
+                                    <Button color="inherit"  >Dashboard</Button>
+                                </NavLink>
 
-                                {!user?.displayName && <NavLink style={{ color: 'white', backgroundColor: '#f63e7b', textDecoration: 'none' }} to='/login'>
+                                {!user?.displayName && <NavLink style={{ color: 'white', backgroundColor: '#f63e7b', textDecoration: 'none', borderRadius: '15px' }} to='/login'>
                                     <Button color="inherit"  >Login</Button>
                                 </NavLink>}
 
-                                {user?.displayName && <NavLink style={{ color: 'white', backgroundColor: '#f63e7b', textDecoration: 'none' }} to='/login'>
+                                {user?.displayName && <NavLink style={{ color: 'white', backgroundColor: '#f63e7b', textDecoration: 'none', borderRadius: '15px' }} to='/login'>
                                     <Button
-                                    
-                                    onClick={logout}
-                                     color="inherit"  >Logout</Button>
+
+                                        onClick={logout}
+                                        color="inherit"  >Logout</Button>
                                 </NavLink>}
                             </Box>
 
