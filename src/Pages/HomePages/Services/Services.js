@@ -3,12 +3,8 @@ import React from 'react'
 import Box from '@mui/material/Box';
 
 import Grid from '@mui/material/Grid';
-import { Button, Container } from '@mui/material';
+import { Container } from '@mui/material';
 import Service from '../Service/Service';
-
-import antiAge from './../../../Image_Icon/Icon/Group 1373.png'
-import hairColor from './../../../Image_Icon/Icon/Group 1372.png'
-import skinCare from './../../../Image_Icon/Icon/Group 1374.png'
 
 
 import Typography from '@mui/material/Typography';
@@ -19,22 +15,22 @@ const services = [
     {
         name: 'Anti Age Face Treatment',
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.Odio, assumenda at perspiciatis vitae perferendis',
-        img: antiAge,
-        price: '$199'
+        img: 'https://i.ibb.co/0Z6frBJ/Group-1373.png',
+        price: 199
     },
 
     {
         name: 'Hair Color & Styling',
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.Odio, assumenda at perspiciatis vitae perferendis',
-        img: hairColor,
-        price: '$99'
+        img: 'https://i.ibb.co/tcHmZGy/Group-1372.png',
+        price: 99
     },
 
     {
         name: 'Skin Care Treatment',
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.Odio, assumenda at perspiciatis vitae perferendis',
-        img: skinCare,
-        price: '$299'
+        img: 'https://i.ibb.co/djcdVqR/Group-1374.png',
+        price: 299
     },
 
 ]
@@ -50,21 +46,21 @@ export default function Services() {
                 </Typography>
                 <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                     {services.map((service, index) => (
-                        <Grid item xs={4} sm={4} md={4} key={index}>
+                        <Grid item xs={4} sm={4} md={4} >
                             <Service
                                 service={service}
-                                key={service.name}
+                                key={service.index}
                             >
 
                             </Service>
                         </Grid>
                     ))}
                 </Grid>
-                <NavLink 
-                to='/services'
-                style={{ background: '#f63e7b', color: 'white', padding: '10px',textDecoration:'none',borderRadius:'15px' }} 
-                sx={{ m: 4 }}
-                
+                <NavLink
+                    to='/services'
+                    style={{ background: '#f63e7b', color: 'white', padding: '10px', textDecoration: 'none', borderRadius: '15px' }}
+                    sx={{ m: 4 }}
+
                 >
                     Explore more
                 </NavLink>

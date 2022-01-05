@@ -9,6 +9,7 @@ import {
 } from 'react-router-dom';
 import Login from './Pages/Login/Login/Login';
 import AuthProvider from './context/AuthProvider/AuthProvider';
+import ServicesList from './Pages/ServicesList/ServicesList';
 
 function App() {
   return (
@@ -19,6 +20,11 @@ function App() {
             <Route exact path="/">
               <Home />
             </Route>
+
+            <Route path='/services'>
+              <ServicesList/> 
+
+            </Route>
             {/* <PrivateRoute path="/appointment">
             <Appointment />
           </PrivateRoute>
@@ -26,15 +32,12 @@ function App() {
             <Dashboard />
           </PrivateRoute> */}
             <Route path="/home" >
-
               <Home />
             </Route>
             <Route path="/login" >
               <Login />
             </Route>
-            <Route path="/register" >
-              {/* <Register /> */}
-            </Route>
+
           </Switch>
         </BrowserRouter>
       </AuthProvider>
