@@ -1,39 +1,75 @@
 import { Button, Container, TextareaAutosize, TextField, Typography } from '@mui/material'
-import React from 'react'
+import React, { useRef, useState } from 'react'
 
-export default function SendMessage() {
+export default function SendMessage({isCommentChange, setIsCommentChange}) {
+    const [review, setReview] = useState([]);
+    const form=useRef(null)
+
+    const handleOnBlur = (e) => {
+        const field = e.target.name;
+        const value = e.target.value;
+        const newInfo = { ...review };
+        newInfo[field] = value;
+        // console.log(newInfo)
+        setReview(newInfo);
+    }
+
+    const handleAddReview = (e) => {
+
+        // send data to the server
+        fetch('http://localhost:5000/comment', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(review)
+
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    alert('Review Added')
+                 setIsCommentChange(!isCommentChange)
+                    form.current.reset(); 
+                }
+            })
+        e.preventDefault()
+    }
+
     return (
         <div style={{ backgroundColor: '#fff8f5', paddingTop: '20px' }}>
             <Container>
-                <Typography variant="h4" component="div">
+                <Typography variant="h4" component="div"
+                sx={{my:5}}
+                >
+
                     Send Review From Here
                 </Typography>
-                <TextField
+                <form
+                onSubmit={handleAddReview}
+                ref={form}
+                >
+                    <TextField
+                        required
+                        sx={{ width: '50%', m: 1 }}
 
-                    sx={{ width: '50%', m: 1 }}
+                        label="Your Name"
+                        variant="standard"
+                        name='name'
+                        onBlur={handleOnBlur}
+                    />
 
-                    label="Your Name"
-                    variant="standard"
-                    name='name'
-                // onBlur={handleOnBlur}
-                />
-                <TextField
-
-                    sx={{ width: '50%', m: 1 }}
-
-                    label="Your Email"
-                    variant="standard"
-                    name='email'
-                    type='email'
-                // onBlur={handleOnBlur}
-                />
-                <TextareaAutosize
-                    maxRows={4}
-                    aria-label="100px"
-                    placeholder="Enter your message"
-                    style={{ width: '50%', height: '100px', margin: '10px' }}
-                />
-                <Button variant='outline' sx={{width:'50%'}}>Submit</Button>
+                    <TextareaAutosize
+                        maxRows={4}
+                        required
+                        onBlur={handleOnBlur}
+                        aria-label="100px"
+                        name='message'
+                        placeholder="Enter your message"
+                        style={{ width: '50%', height: '100px', margin: '10px' }}
+                    />
+                    <Button type='submit' variant='outline' sx={{ width: '50%' ,my:3}}>Submit</Button>
+                </form>
             </Container>
         </div>
     )

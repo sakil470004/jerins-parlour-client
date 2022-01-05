@@ -1,31 +1,21 @@
 import { Box, Container, Grid, Typography } from '@mui/material'
-import React from 'react'
+import React, { useEffect } from 'react'
 import MesssageReviewer from './MessageReviewer'
 
-export default function MesssageReviewers() {
+export default function MesssageReviewers({ comments, setComments, isCommentChange }) {
 
 
-    const comments = [
 
-        {
-            name: 'Sakil',
-            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.Odio, assumenda at perspiciatis vitae perferendis'
-        },
-
-        {
-            name: 'Nayeem',
-            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.Odio, assumenda at perspiciatis vitae perferendis'
-        },
-
-        {
-            name: 'Tareq',
-            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.Odio, assumenda at perspiciatis vitae perferendis'
-        },
-
-    ]
+    useEffect(() => {
+        fetch('http://localhost:5000/comment')
+            .then(res => res.json())
+            .then(data => {
+                setComments(data);
+            })
+    }, [isCommentChange]);
 
     return (
-        <Box sx={{ flexGrow: 1,my:5 }}>
+        <Box sx={{ flexGrow: 1, my: 5 }}>
             <Container>
 
                 <Typography sx={{ fontWeight: 600, m: 5 }} variant="h4" component="div" >
@@ -36,8 +26,8 @@ export default function MesssageReviewers() {
                         <Grid item xs={4} sm={4} md={4} key={index}>
 
                             <MesssageReviewer
-                            comment={comment}
-                            key={index}
+                                comment={comment}
+                                key={comment._id}
                             >
 
                             </MesssageReviewer>
