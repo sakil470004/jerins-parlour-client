@@ -6,12 +6,6 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -30,6 +24,7 @@ import MakeAdmin from './MakeAdmin/MakeAdmin';
 import AdminRoute from './AdminRoute/AdminRoute';
 import AddService from './AddService/AddService';
 import OrderList from './OrderLIst/OrderLIst';
+import { NavLink } from 'react-router-dom';
 
 const drawerWidth = 150;
 
@@ -46,20 +41,27 @@ function Dashboard(props) {
         setMobileOpen(!mobileOpen);
     };
 
+    const [responsiveDrawer, setResponsiveDrawer] = React.useState('My Booking')
+    const handleDrawerName = (e) => {
+        setResponsiveDrawer(e)
+        // console.log(e)
+    }
     const drawer = (
         <div >
             <Box sx={{ height: '60px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                <img width='120' alt='logo' src={logo} />
+                <NavLink to='/home'>
+                    <img width='120' alt='logo' src={logo} />
+                </NavLink>
             </Box>
             <Divider />
             <Box sx={{ textAlign: 'left', ml: 2, textDecoration: 'none' }}>
                 <Link to='/services' style={{ textDecoration: 'none' }}><Button color="inherit">Services</Button></Link>
                 <br />
-                <Link to={`${url}`} style={{ textDecoration: 'none' }}><Button color="inherit">My Booking</Button></Link>
+                <Link to={`${url}`} style={{ textDecoration: 'none' }}><Button color="inherit" onClick={() => handleDrawerName('My Booking')}>My Booking</Button></Link>
                 {admin && <Box>
-                    <Link to={`${url}/orderList`} style={{ textDecoration: 'none' }}><Button color="inherit">Order List</Button></Link>
-                    <Link to={`${url}/makeAdmin`} style={{ textDecoration: 'none' }}><Button color="inherit">Make Admin</Button></Link>
-                    <Link to={`${url}/addService`} style={{ textDecoration: 'none' }}><Button color="inherit">Add Service</Button></Link>
+                    <Link to={`${url}/orderList`} style={{ textDecoration: 'none' }}><Button color="inherit" onClick={() => handleDrawerName('Order List')} >Order List</Button></Link>
+                    <Link to={`${url}/makeAdmin`} style={{ textDecoration: 'none' }}><Button color="inherit" onClick={() => handleDrawerName('Make Admin')}>Make Admin</Button></Link>
+                    <Link to={`${url}/addService`} style={{ textDecoration: 'none' }}><Button color="inherit" onClick={() => handleDrawerName('Add Service')}>Add Service</Button></Link>
                 </Box>}
             </Box>
 
@@ -67,6 +69,7 @@ function Dashboard(props) {
     );
 
     const container = window !== undefined ? () => window().document.body : undefined;
+
 
     return (
         <Box sx={{ display: 'flex' }} >
@@ -90,7 +93,7 @@ function Dashboard(props) {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
-                        Responsive drawer
+                        {responsiveDrawer}
                     </Typography>
                 </Toolbar>
             </AppBar>
@@ -141,7 +144,7 @@ function Dashboard(props) {
                         <MakeAdmin />
                     </AdminRoute>
                     <AdminRoute path={`${path}/orderList`}>
-                        <OrderList/>
+                        <OrderList />
                     </AdminRoute>
                     <AdminRoute path={`${path}/addService`}>
                         <AddService />
