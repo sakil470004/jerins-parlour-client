@@ -9,7 +9,14 @@ export default function Service(props) {
     const { name, description, img, price } = props.service;
 
     return (
-        <Card sx={{ minWidth: 275, border: 0, boxShadow: 0 }}>
+        // give here hover effect , it go across the all component
+        <Card sx={{
+            minWidth: 275, border: 0, boxShadow: 0, py: 1,
+            '&:hover': {
+                boxShadow: 3,
+                transition: '0.8s'
+            }
+        }}>
             <CardMedia
                 component="img"
                 style={{ width: 'auto', height: '80px', margin: '0 auto' }}

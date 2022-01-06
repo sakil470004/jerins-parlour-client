@@ -15,7 +15,7 @@ export default function ServicesList() {
         let clone = Object.assign({}, e)
         // console.log(user.email)
         delete clone._id
-        let newInfo={...clone,email:user.email,userName:user.displayName,action:'pending'}
+        let newInfo = { ...clone, email: user.email, userName: user.displayName, action: 'pending' }
         fetch('https://jerins-parlour-server.herokuapp.com/appointment', {
             method: 'POST',
             headers: {
@@ -52,13 +52,15 @@ export default function ServicesList() {
                 <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
 
                     {
-                        servicesList.map((service,index) => (
+                        servicesList.map((service, index) => (
                             <Grid item xs={4} sm={4} md={4} 
-                            key={index}
+                                key={index}
                             >
-                                <Service
+                                <Service sx={{
+                               
+                            }}
                                     service={service}
-                                    
+
                                 >
                                     <Button variant='outlined' sx={{ mt: 2 }}
 
@@ -73,7 +75,7 @@ export default function ServicesList() {
                         ))
                     }
                 </Grid>
-              
+
             </Container>
         </Box>
     )
