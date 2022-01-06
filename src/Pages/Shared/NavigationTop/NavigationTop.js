@@ -16,6 +16,7 @@ import logo from './../../../Image_Icon/Group 33092.png'
 import { Button, Container } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
+import { HashLink } from 'react-router-hash-link';
 
 
 
@@ -84,36 +85,19 @@ export default function NavigationTop() {
             onClose={handleMobileMenuClose}
         >
             <MenuItem>
-                <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-                    <Badge badgeContent={4} color="error">
-                        <MailIcon />
-                    </Badge>
-                </IconButton>
-                <p>Messages</p>
+            <HashLink smooth to='/home#serviceWeProvide'>
+                Service
+                </HashLink>
             </MenuItem>
             <MenuItem>
-                <IconButton
-                    size="large"
-                    aria-label="show 17 new notifications"
-                    color="inherit"
-                >
-                    <Badge badgeContent={17} color="error">
-                        <NotificationsIcon />
-                    </Badge>
-                </IconButton>
-                <p>Notifications</p>
+            <HashLink smooth to='/home#reviewWeGot'>
+                Review
+            </HashLink>
             </MenuItem>
-            <MenuItem onClick={handleProfileMenuOpen}>
-                <IconButton
-                    size="large"
-                    aria-label="account of current user"
-                    aria-controls="primary-search-account-menu"
-                    aria-haspopup="true"
-                    color="inherit"
-                >
-                    <AccountCircle />
-                </IconButton>
-                <p>Profile</p>
+            <MenuItem>
+            <NavLink to='/dashboard'>
+                Dashboard
+            </NavLink>
             </MenuItem>
 
         </Menu>
@@ -128,9 +112,9 @@ export default function NavigationTop() {
                 <Box sx={{ flexGrow: 1 }} >
                     <AppBar position="static" style={{ background: '#fff8f5', boxShadow: 'none' }}>
                         <Toolbar>
-
-                            <img src={logo} width='120' alt='logo' />
-
+                            <NavLink to='/home'>
+                                <img src={logo} width='120' alt='logo' />
+                            </NavLink>
                             <Box sx={{ flexGrow: 1 }} />
                             <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
 
@@ -140,13 +124,15 @@ export default function NavigationTop() {
                                 </NavLink>
 
 
-                                <NavLink style={{ color: 'black', textDecoration: 'none' }} to='/home'>
-                                    <Button color="inherit"  >Our Team</Button>
-                                </NavLink>
+                                <HashLink smooth style={{ color: 'black', textDecoration: 'none' }} to='/home#serviceWeProvide'>
+                                    <Button color="inherit"  >Services</Button>
+                                </HashLink>
 
-                                <NavLink style={{ color: 'black', textDecoration: 'none' }} to='/home'>
-                                    <Button color="inherit"  >Contact Us</Button>
-                                </NavLink>
+                                <HashLink smooth
+
+                                    style={{ color: 'black', textDecoration: 'none' }} to='/home#reviewWeGot'>
+                                    <Button color="inherit"  >Review</Button>
+                                </HashLink>
                                 <NavLink style={{ color: 'black', textDecoration: 'none' }} to='/dashboard'>
                                     <Button color="inherit"  >Dashboard</Button>
                                 </NavLink>

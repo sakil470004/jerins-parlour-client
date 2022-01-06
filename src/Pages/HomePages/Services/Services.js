@@ -38,34 +38,36 @@ const services = [
 
 export default function Services() {
     return (
-        <Box sx={{ flexGrow: 1 }}>
-            <Container>
+        <div id='serviceWeProvide'>
+            <Box sx={{ flexGrow: 1 }}>
+                <Container >
 
-                <Typography sx={{ fontWeight: 600, m: 5 }} variant="h4" component="div" >
-                    Services We <span style={{ color: '#f63e7b' }}> Provide</span>
-                </Typography>
-                <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-                    {services.map((service, index) => (
-                        <Grid item xs={4} sm={4} md={4}
-                        key={index}
-                         >
-                            <Service
-                                service={service}
+                    <Typography sx={{ fontWeight: 600, m: 5 }} variant="h4" component="div" >
+                        Services We <span style={{ color: '#f63e7b' }}> Provide</span>
+                    </Typography>
+                    <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+                        {services.map((service, index) => (
+                            <Grid item xs={4} sm={4} md={4}
+                                key={index}
                             >
+                                <Service
+                                    service={service}
+                                >
 
-                            </Service>
-                        </Grid>
-                    ))}
-                </Grid>
-                <NavLink
-                    to='/services'
-                    style={{ background: '#f63e7b', color: 'white', padding: '10px', textDecoration: 'none', borderRadius: '15px' }}
-                    sx={{ m: 4 }}
+                                </Service>
+                            </Grid>
+                        ))}
+                    </Grid>
+                    <NavLink
+                        to='/services'
+                        style={{ background: '#f63e7b', color: 'white', padding: '10px', textDecoration: 'none', borderRadius: '15px' }}
+                        sx={{ m: 4 }}
 
-                >
-                    Explore more
-                </NavLink>
-            </Container>
-        </Box>
+                    >
+                        Explore more
+                    </NavLink>
+                </Container>
+            </Box>
+        </div>
     )
 }
