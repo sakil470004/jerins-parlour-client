@@ -18,7 +18,7 @@ export default function AddService() {
     const handleAddService = (e) => {
         // console.log(service)
         // send data to the server
-        fetch('https://jerins-parlour-server.herokuapp.com/service', {
+        fetch('https://jerins-parlour--server.herokuapp.com/service', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

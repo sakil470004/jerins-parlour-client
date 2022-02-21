@@ -58,11 +58,15 @@ function Dashboard(props) {
                 <Link to='/services' style={{ textDecoration: 'none' }}><Button color="inherit">Services</Button></Link>
                 <br />
                 <Link to={`${url}`} style={{ textDecoration: 'none' }}><Button color="inherit" onClick={() => handleDrawerName('My Booking')}>My Booking</Button></Link>
-                {admin && <Box>
+                {/* {admin &&  */}
+                <Box>
                     <Link to={`${url}/orderList`} style={{ textDecoration: 'none' }}><Button color="inherit" onClick={() => handleDrawerName('Order List')} >Order List</Button></Link>
                     <Link to={`${url}/makeAdmin`} style={{ textDecoration: 'none' }}><Button color="inherit" onClick={() => handleDrawerName('Make Admin')}>Make Admin</Button></Link>
                     <Link to={`${url}/addService`} style={{ textDecoration: 'none' }}><Button color="inherit" onClick={() => handleDrawerName('Add Service')}>Add Service</Button></Link>
-                </Box>}
+                </Box>
+                {/* } */}
+                <br />
+                The admin route is open for the time being to prevent malicious attack I remove some function
             </Box>
 
         </div>
@@ -139,16 +143,16 @@ function Dashboard(props) {
                     <Route exact path={path}>
                         <DashboardHome />
                     </Route>
-
-                    <AdminRoute path={`${path}/makeAdmin`}>
+                    {/* changing Admin route To route */}
+                    <Route path={`${path}/makeAdmin`}>
                         <MakeAdmin />
-                    </AdminRoute>
-                    <AdminRoute path={`${path}/orderList`}>
+                    </Route>
+                    <Route path={`${path}/orderList`}>
                         <OrderList />
-                    </AdminRoute>
-                    <AdminRoute path={`${path}/addService`}>
+                    </Route>
+                    <Route path={`${path}/addService`}>
                         <AddService />
-                    </AdminRoute>
+                    </Route>
                 </Switch>
 
             </Box>

@@ -14,7 +14,7 @@ export default function MakeAdmin() {
     const handleAdminSubmit = e => {
 // need lowerCase for server understand
         const user = { email: email.toLocaleLowerCase() }
-        fetch('https://jerins-parlour-server.herokuapp.com/users/admin', {
+        fetch('https://jerins-parlour--server.herokuapp.com/users/admin', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
