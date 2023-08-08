@@ -1,5 +1,12 @@
 import { initializeApp } from "firebase/app";
-import firebaseConfig from "./Firebase.config";
+const firebaseConfig = {
+  apiKey: "AIzaSyA3P0N4YMV9heFOnIWJi5ka45I--G7xfzw",
+  authDomain: "jerin-parlour-39960.firebaseapp.com",
+  projectId: "jerin-parlour-39960",
+  storageBucket: "jerin-parlour-39960.appspot.com",
+  messagingSenderId: "1037793890429",
+  appId: "1:1037793890429:web:5cf389f337a3346564a114"
+};
 
 // Initialize Firebase
 const initializeFirebase = () => {

@@ -101,7 +101,7 @@ const useFirebase = () => {
 
     // observe user admin or not
     useEffect(() => {
-        fetch(`https://jerins-parlour--server.herokuapp.com/users/${user.email}`)
+        fetch(`https://jerins-parlour-server-hazel.vercel.app/users/${user.email}`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data)
@@ -124,7 +124,7 @@ const useFirebase = () => {
 
     const saveUser = (email, displayName, method) => {
         const user = { email, displayName };
-        fetch('https://jerins-parlour--server.herokuapp.com/users', {
+        fetch('https://jerins-parlour-server-hazel.vercel.app/users', {
             method: `${method}`,
             headers: {
                 'content-type': 'application/json'

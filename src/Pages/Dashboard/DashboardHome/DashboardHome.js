@@ -17,7 +17,7 @@ export default function DashboardHome() {
     const { user } = useAuth()
     useEffect(() => {
 
-        fetch(`https://jerins-parlour--server.herokuapp.com/appointmentUser?email=${user.email}`)
+        fetch(`https://jerins-parlour-server-hazel.vercel.app/appointmentUser?email=${user.email}`)
             .then(res => res.json())
             .then(data => setServices(data));
 

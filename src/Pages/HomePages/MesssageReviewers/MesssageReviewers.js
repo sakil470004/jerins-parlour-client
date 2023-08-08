@@ -7,7 +7,7 @@ export default function MesssageReviewers({ comments, setComments, isCommentChan
 
 
     useEffect(() => {
-        fetch('https://jerins-parlour--server.herokuapp.com/comment')
+        fetch('https://jerins-parlour-server-hazel.vercel.app/comment')
             .then(res => res.json())
             .then(data => {
                 setComments(data);

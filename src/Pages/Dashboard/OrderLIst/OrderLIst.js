@@ -16,7 +16,7 @@ export default function OrderList() {
     // const [dataObserver,setDataObserver]=useState(false)
 
     useEffect(() => {
-        fetch('https://jerins-parlour--server.herokuapp.com/appointment')
+        fetch('https://jerins-parlour-server-hazel.vercel.app/appointment')
             .then(res => res.json())
             .then(data => {
                 setOrders(data)
